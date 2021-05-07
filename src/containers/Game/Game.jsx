@@ -14,8 +14,8 @@ const Game = () => {
 
 	useEffect(() => {
 		if (userChoice.value === PCChoice.value) dispatch(actions.drawAction()) ;
-		else if ((userChoice.value + 1) % 3 === PCChoice.value) dispatch(actions.loseAction());
-		else dispatch(actions.winAction());
+		else if ((userChoice.value + 1) % 3 === PCChoice.value) dispatch(actions.winAction());
+		else dispatch(actions.loseAction());
 	}, [PCChoice, userChoice, dispatch])
 
 	const setPlayAgain = () => {

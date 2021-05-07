@@ -10,16 +10,15 @@ export const picks = [
 		value: 0
 	},
 	{
-		name: 'scissors',
-		image: scissorsImg,
-		bgColor: 'bg-scissors',
-		value: 1
-	},
-	{
 		name: 'rock',
 		image: rockImg,
 		bgColor: 'bg-rock',
-		value: 2
+		value: 1
 	},
-
+	{
+		name: 'scissors',
+		image: scissorsImg,
+		bgColor: 'bg-scissors',
+		value: 2
+	}
 ];
