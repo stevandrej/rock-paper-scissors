@@ -14,7 +14,7 @@ const Pick = ({ propChoice }) => {
 	const handleClick = () => {
 		if (gameState === 'game')
 			return;
-		dispatch(pickAction(propChoice))
+		dispatch(pickAction(choice))
 	}
 
 	return (

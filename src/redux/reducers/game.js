@@ -29,7 +29,7 @@ const game = (state = initState, action) => {
 				gameWon: 'draw'
 			}
 		case "PICK":
-			const pcRandomChoice = picks[Math.floor(Math.random() * 3)].name;
+			const pcRandomChoice = picks[Math.floor(Math.random() * 3)];
 			return {
 				...state,
 				gameState: 'game',

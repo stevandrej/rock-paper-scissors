@@ -13,55 +13,9 @@ const Game = () => {
 	const gameWon = useSelector(state => state.game.gameWon);
 
 	useEffect(() => {
-		switch (userChoice) {
-			case 'rock':
-				switch (PCChoice) {
-					case 'scissors':
-						dispatch(actions.winAction())
-						break;
-					case 'paper':
-						dispatch(actions.loseAction())
-						break;
-					case 'rock':
-						dispatch(actions.drawAction())
-						break;
-					default:
-						break;
-				}
-				break;
-			case 'paper':
-				switch (PCChoice) {
-					case 'scissors':
-						dispatch(actions.loseAction())
-						break;
-					case 'paper':
-						dispatch(actions.drawAction())
-						break;
-					case 'rock':
-						dispatch(actions.winAction())
-						break;
-					default:
-						break;
-				}
-				break;
-			case 'scissors':
-				switch (PCChoice) {
-					case 'scissors':
-						dispatch(actions.drawAction())
-						break;
-					case 'paper':
-						dispatch(actions.winAction())
-						break;
-					case 'rock':
-						dispatch(actions.loseAction())
-						break;
-					default:
-						break;
-				}
-				break;
-			default:
-				break;
-		}
+		if (userChoice.value === PCChoice.value) dispatch(actions.drawAction()) ;
+		else if ((userChoice.value + 1) % 3 === PCChoice.value) dispatch(actions.loseAction());
+		else dispatch(actions.winAction());
 	}, [PCChoice, userChoice, dispatch])
 
 	const setPlayAgain = () => {
@@ -72,7 +26,7 @@ const Game = () => {
 		<div className='game'>
 			<div className='game__pick'>
 				<span className='game__pick__text'>You picked</span>
-				<Pick propChoice={userChoice} />
+				<Pick propChoice={userChoice.name} />
 			</div>
 			<div className='game-options'>
 				<span className='game-options__result'>You {gameWon}</span>
@@ -80,7 +34,7 @@ const Game = () => {
 			</div>
 			<div className='game__pick'>
 				<span className='game__pick__text'>The house picked</span>
-				<Pick propChoice={PCChoice} />
+				<Pick propChoice={PCChoice.name} />
 			</div>
 		</div>
 	)
