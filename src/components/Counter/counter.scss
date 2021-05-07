@@ -1,0 +1,22 @@
+.counter{
+	background: #fff;	
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 10px 30px;
+
+	&__title{
+		color: hsl(229, 64%, 46%);
+		font-weight: 600;
+		font-size: 1.3rem;
+		letter-spacing: 2px;
+	}
+
+	&__score{
+		color: hsl(229, 25%, 31%);
+		font-weight: 700;
+		font-size: 4.2rem;
+	}
+}
