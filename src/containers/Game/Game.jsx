@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Pick from '../../components/Pick/Pick'
 import * as actions from '../../redux/actions/game';
 import Button from '../../components/Button/Button';
+import {useSpring, animated} from 'react-spring';
 
 const Game = () => {
 
@@ -13,7 +14,7 @@ const Game = () => {
 	const gameWon = useSelector(state => state.game.gameWon);
 
 	useEffect(() => {
-		if (userChoice.value === PCChoice.value) dispatch(actions.drawAction()) ;
+		if (userChoice.value === PCChoice.value) dispatch(actions.drawAction());
 		else if ((userChoice.value + 1) % 3 === PCChoice.value) dispatch(actions.winAction());
 		else dispatch(actions.loseAction());
 	}, [PCChoice, userChoice, dispatch])
@@ -22,19 +23,40 @@ const Game = () => {
 		dispatch(actions.playAgain());
 	}
 
+	const styles = useSpring({
+		from : {
+			opacity: 0
+		},
+		to: {
+			opacity: 1
+		},
+		config: {
+			duration: 300
+		}
+	})
+
 	return (
-		<div className='game'>
-			<div className='game__pick'>
-				<span className='game__pick__text'>You picked</span>
-				<Pick propChoice={userChoice.name} />
+		<div className='game-grid'>
+			<div className='user-infotext grid-element'>
+				<span className='info-text'>You picked</span>
 			</div>
-			<div className='game-options'>
-				<span className='game-options__result'>You {gameWon}</span>
-				<Button variant='default' wide={true} onClick={setPlayAgain}>Play again</Button>
+
+			<div className="spacer"></div>
+			
+			<div className="pc-infotext grid-element">
+				<span className='info-text'>The house picked</span>
 			</div>
-			<div className='game__pick'>
-				<span className='game__pick__text'>The house picked</span>
-				<Pick propChoice={PCChoice.name} />
+
+			<div className="user-choice grid-element">
+				<Pick propChoice={userChoice.name} ripple={ gameWon==='win' ? true : false}/>
+			</div>
+			
+			<div className="game-result grid-element">
+				<span className='result-text'>{gameWon === 'draw' ? 'DRAW' : `You ${gameWon}`}</span>
+				<Button variant='default' wide={true} onClick={setPlayAgain}>Play again</Button></div>
+			
+			<div className="pc-choice grid-element">
+				<animated.div style={styles}><Pick propChoice={PCChoice.name} ripple={ gameWon==='lose' ? true : false}/></animated.div>
 			</div>
 		</div>
 	)

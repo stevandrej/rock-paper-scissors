@@ -1,36 +1,50 @@
-.game{
+.game-grid {
 	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	&__pick{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	
-		&__text{
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			color: white;
-			margin-bottom: 50px;
-		}
-	}
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: 10px;
+	grid-template-areas:
+		"user-infotext spacer pc-infotext"
+		"user-choice game-result pc-choice";
 }
 
-.game-options{
+.user-infotext {
+	grid-area: user-infotext;
+}
+.spacer {
+	grid-area: spacer;
+}
+.pc-infotext {
+	grid-area: pc-infotext;
+}
+.user-choice {
+	grid-area: user-choice;
+}
+.pc-choice {
+	grid-area: pc-choice;
+}
+.game-result {
+	grid-area: game-result;
+}
+
+.grid-element{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	
-	&__result{
-		text-transform: uppercase;
-		font-family: inherit;
-		font-weight: 700;
-		font-size: 6rem;
-		color: white;
-		margin-bottom: 20px;
-	}
+}
+
+.info-text{
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: white;
+}
+
+.result-text{
+	text-transform: uppercase;
+	font-family: inherit;
+	font-weight: 700;
+	font-size: 6rem;
+	color: white;
 }
