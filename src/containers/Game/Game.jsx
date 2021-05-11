@@ -51,7 +51,7 @@ const Game = () => {
 				<Pick propChoice={userChoice.name} ripple={ gameWon==='win' ? true : false}/>
 			</div>
 			
-			<div className="game-result grid-element">
+			<div className="grid-element" id='game-result'>
 				<span className='result-text'>{gameWon === 'draw' ? 'DRAW' : `You ${gameWon}`}</span>
 				<Button variant='default' wide={true} onClick={setPlayAgain}>Play again</Button></div>
 			

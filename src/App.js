@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import './App.css';
+import './App.scss';
 import Button from './components/Button/Button';
 import Modal from './components/Modal/Modal';
 import Game from './containers/Game/Game';
@@ -23,16 +23,19 @@ function App() {
 	return (
 		<>
 			<div className='app'>
-				<Modal open={modalOpen} onClose={handleModalClose}><img src={rulesImg} alt='rules'/></Modal>
-				<Header />
-				<main className='container' >
-					{gameState === 'start' ? <Start /> : <Game />}
-				</main>
+				<Modal open={modalOpen} onClose={handleModalClose}>
+					<img src={rulesImg} alt='rules' />
+				</Modal>
+				<div className='wrapper'>
+					<Header />
+					<main className='content' >
+						{gameState === 'start' ? <Start /> : <Game />}
+					</main>
+				</div>
+				<footer>
+					<Button variant='outlined' onClick={handleModalOpen}>RULES</Button>
+				</footer>
 			</div>
-
-			<footer>
-				<Button variant='outlined' onClick={handleModalOpen}>RULES</Button>
-			</footer>
 		</>
 	);
 }

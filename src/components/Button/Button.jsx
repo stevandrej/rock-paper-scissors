@@ -10,7 +10,7 @@ const Button = ({variant = 'default', onClick, fluid, wide, ...props}) => {
 	}
 
 	return (
-		<button className={`btn btn--${variant} ${fluid ? "btn--fluid" : null} ${wide ? "btn--wide": null} `} onClick={handleClick} >{props.children}</button>
+		<button className={`btn btn--${variant} ${fluid ? "btn--fluid" : ''} ${wide ? "btn--wide": ''} `} onClick={handleClick} >{props.children}</button>
 	)
 }
 

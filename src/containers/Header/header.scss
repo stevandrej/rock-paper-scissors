@@ -1,3 +1,5 @@
+@import "../../scss/breakpoints.scss";
+
 .header{
 	border: 2px solid hsl(217, 16%, 45%);
 	border-radius: 8px;
@@ -11,5 +13,9 @@
 		font-weight: 700;
 		text-align: left;
 		color: white;
+
+		@include mobile{
+			font-size: 2.2rem;
+		}
 	}
 }

@@ -1,3 +1,5 @@
+@import "../../scss/breakpoints.scss";
+
 .counter{
 	background: #fff;	
 	border-radius: 8px;
@@ -7,16 +9,28 @@
 	align-items: center;
 	padding: 10px 30px;
 
+	@include mobile{
+		padding: 10px 20px;
+	}
+
 	&__title{
 		color: hsl(229, 64%, 46%);
 		font-weight: 600;
 		font-size: 1.3rem;
 		letter-spacing: 2px;
+
+		@include mobile{
+			font-size: 1.2rem;
+		}
 	}
 
 	&__score{
 		color: hsl(229, 25%, 31%);
 		font-weight: 700;
 		font-size: 4.2rem;
+
+		@include mobile{
+			font-size: 2.6rem;
+		}
 	}
 }

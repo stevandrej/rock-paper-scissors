@@ -1,26 +1,60 @@
-.game-content{
+@import "../../scss/breakpoints.scss";
+
+.game-content {
 	position: relative;
 	width: 100%;
 	height: 500px;
 	background: url(../../images/bg-triangle.svg) no-repeat center;
 	background-size: auto;
 
-	&__paper{
-		position: absolute;
-		top: 10%;
-		left: 20%;
+	@include mobile{
+		height: 350px;
 	}
 
-	&__scissors{
+	&__weapon {
 		position: absolute;
-		top:10%;
-		right: 20%;
-	}
+		transition: transform 0.3s;
 
-	&__rock{
-		position: absolute;
-		bottom: 10%;
-		left: 50%;
-		transform: translateX(-50%);
+		&--paper {
+			top: 10%;
+			left: 20%;
+
+			@include mobile{
+				top: 2%;
+				left: 0;
+			}
+
+			&:hover {
+				transform: scale(1.12);
+			}
+		}
+
+		&--scissors {
+			top: 10%;
+			right: 20%;
+
+			@include mobile{
+				top: 2%;
+				right: 0;
+			}
+
+			&:hover {
+				transform: scale(1.12);
+			}
+		}
+
+		&--rock {
+			bottom: 10%;
+			left: 50%;
+			transform: translateX(-50%);
+
+			@include mobile{
+				bottom: 3%;
+			}
+
+			&:hover {
+				transform: translateX(-50%) scale(1.12);
+			}
+		}
 	}
 }

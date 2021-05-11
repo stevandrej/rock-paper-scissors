@@ -1,0 +1,50 @@
+@import "./scss/breakpoints.scss";
+
+.app{
+	display: flex;
+	flex-direction: column;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	min-height: 100vh;
+
+	@include tablet{
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+}
+
+.wrapper{
+	max-width: 768px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	align-self: center;
+}
+
+.content{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
+	flex: 1;
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	@include mobile{
+		padding-top: 50px;
+		padding-bottom: 30px;
+	}
+}
+
+footer{
+	color: white;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 40px;
+
+	@include tablet{
+			justify-content: center;
+			margin: unset;
+	}
+}

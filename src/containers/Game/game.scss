@@ -24,8 +24,9 @@
 .pc-choice {
 	grid-area: pc-choice;
 }
-.game-result {
+#game-result {
 	grid-area: game-result;
+	justify-content: space-evenly;
 }
 
 .grid-element{
