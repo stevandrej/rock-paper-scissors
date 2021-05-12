@@ -1,3 +1,5 @@
+@import "../../scss/breakpoints.scss";
+
 .game-grid {
 	width: 100%;
 	display: grid;
@@ -7,16 +9,36 @@
 	grid-template-areas:
 		"user-infotext spacer pc-infotext"
 		"user-choice game-result pc-choice";
+
+	@include mobile{
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-areas: 
+			"user-choice pc-choice"
+			"user-infotext pc-infotext"
+			"game-result game-result";
+	}
 }
 
 .user-infotext {
 	grid-area: user-infotext;
+	@include mobile{
+		justify-content: flex-start !important;
+		font-size: 1.4rem;
+	}
 }
 .spacer {
 	grid-area: spacer;
+	@include mobile{
+		display: none;
+	}
 }
 .pc-infotext {
 	grid-area: pc-infotext;
+	@include mobile{
+		justify-content: flex-start !important;
+		font-size: 1.4rem;
+	}
 }
 .user-choice {
 	grid-area: user-choice;
@@ -24,9 +46,9 @@
 .pc-choice {
 	grid-area: pc-choice;
 }
-#game-result {
+.game-result {
 	grid-area: game-result;
-	justify-content: space-evenly;
+	justify-content: space-evenly !important;
 }
 
 .grid-element{
@@ -40,12 +62,19 @@
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	color: white;
+	text-align: center;
 }
 
 .result-text{
 	text-transform: uppercase;
+	text-align: center;
 	font-family: inherit;
 	font-weight: 700;
 	font-size: 6rem;
 	color: white;
+
+	@include mobile{
+		font-size: 6rem;
+		margin-bottom: 20px;
+	}
 }
