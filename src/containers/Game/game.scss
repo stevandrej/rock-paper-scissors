@@ -12,7 +12,7 @@
 
 	@include mobile{
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(3, 1fr);
+		grid-template-rows: repeat(3, minmax(115px,1fr));
 		grid-template-areas: 
 			"user-choice pc-choice"
 			"user-infotext pc-infotext"
