@@ -30,6 +30,11 @@
 		background: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 	}
 
+	&--empty{
+		background: rgba(0, 0, 0, 0.15);
+		box-shadow: none;
+	}
+
 	&__inner {
 		background: #fff;
 		border-radius: 50%;
