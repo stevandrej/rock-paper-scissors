@@ -16,8 +16,14 @@ const Pick = ({ propChoice, ripple }) => {
 		dispatch(pickAction(choice))
 	}
 
+	if(propChoice==='empty')
+		return(
+			<div className={`choice choice--${propChoice}`} >
+		</div>
+		)
+
 	return (
-		<div className={`choice choice--${choice.bgColor} ${ripple ? 'ripple': ''}`} onClick={handleClick} >
+		<div className={`choice choice--${choice.bgColor} ${ripple ? 'ripple' : ''}`} onClick={handleClick} >
 			<div className='choice__inner'>
 				<img className='choice__image' src={choice.image} alt={propChoice} />
 			</div>
