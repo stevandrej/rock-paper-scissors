@@ -23,6 +23,12 @@ export const pickAction = (payload) => {
 	}
 }
 
+export const pcPickAction = () => {
+	return{
+		type: "PC_PICK"
+	}
+}
+
 export const playAgain = () => {
 	return{
 		type: "PLAY_AGAIN"

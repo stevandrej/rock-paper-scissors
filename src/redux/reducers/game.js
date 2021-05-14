@@ -6,7 +6,7 @@ const initState = {
 	userChoice: '',
 	PCChoice: '',
 	gameState: 'start',
-	gameWon:''
+	gameResult:''
 }
 
 const game = (state = initState, action) => {
@@ -15,26 +15,30 @@ const game = (state = initState, action) => {
 			return {
 				...state,
 				score: state.score + 1,
-				gameWon: 'win'
+				gameResult: 'win'
 			}
 		case "LOSE":
 			return {
 				...state,
 				score: state.score - 1,
-				gameWon: 'lose'
+				gameResult: 'lose'
 			}
 		case "DRAW":
 			return{
 				...state,
-				gameWon: 'draw'
+				gameResult: 'draw'
 			}
 		case "PICK":
-			const pcRandomChoice = picks[Math.floor(Math.random() * 3)];
 			return {
 				...state,
 				gameState: 'game',
-				PCChoice: pcRandomChoice,
 				userChoice: action.payload
+			}
+		case "PC_PICK":
+			const pcRandomChoice = picks[Math.floor(Math.random() * 3)];
+			return {
+				...state,
+				PCChoice: pcRandomChoice
 			}
 		case "PLAY_AGAIN":
 			return{
@@ -42,7 +46,7 @@ const game = (state = initState, action) => {
 				gameState: 'start',
 				PCChoice:'',
 				userChoice:'',
-				gameWon: ''
+				gameResult: ''
 			}
 		default:
 			return state;
