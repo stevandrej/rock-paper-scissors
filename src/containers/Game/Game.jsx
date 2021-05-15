@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './game.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import Pick from '../../components/Pick/Pick'
@@ -12,22 +12,32 @@ const Game = () => {
 	const userChoice = useSelector(state => state.game.userChoice);
 	const PCChoice = useSelector(state => state.game.PCChoice);
 	const gameResult = useSelector(state => state.game.gameResult);
-	const timerDelayResult = 1500; //1.5s delay
+	const timerDelayResult = 2000; //2sec delay
+
+	const [countdown, setCountdown] = useState(timerDelayResult / 1000);
 
 	const isFirstRun = useRef(true);
 
 	useEffect(() => {
 		if (isFirstRun.current)
-			setTimeout(() => {
-				dispatch(actions.pcPickAction());
+			if (countdown > 0) {
+				setTimeout(() => {
+					setCountdown(countdown - 1)
+				}, 1000)
+			}
+			else {
 				isFirstRun.current = false;
-			}, timerDelayResult);
+				dispatch(actions.pcPickAction());
+			}
 		else {
-			if (userChoice.value === PCChoice.value) dispatch(actions.drawAction());
-			else if ((userChoice.value + 1) % 3 === PCChoice.value) dispatch(actions.winAction());
-			else dispatch(actions.loseAction());
+			if (userChoice.value === PCChoice.value)
+				dispatch(actions.drawAction());
+			else if ((userChoice.value + 1) % 3 === PCChoice.value)
+				dispatch(actions.winAction());
+			else
+				dispatch(actions.loseAction());
 		}
-	}, [PCChoice, userChoice, dispatch])
+	}, [PCChoice, userChoice, dispatch, countdown])
 
 	const styles = useSpring({
 		from: {
@@ -86,7 +96,7 @@ const Game = () => {
 					</div>
 
 					<div className="pc-choice grid-element">
-						<Pick propChoice='empty' />
+						<Pick propChoice='empty'>{countdown}</Pick>
 					</div>
 				</div>
 			</animated.div>
