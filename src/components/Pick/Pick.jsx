@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { pickAction } from '../../redux/actions/game';
 import { picks } from './pickChoices';
 
-const Pick = ({ propChoice, ripple }) => {
+const Pick = ({ propChoice, ripple, ...props}) => {
 
 	const dispatch = useDispatch();
 	const gameState = useSelector(state => state.game.gameState);
@@ -16,16 +16,16 @@ const Pick = ({ propChoice, ripple }) => {
 		dispatch(pickAction(choice))
 	}
 
-	if(propChoice==='empty')
-		return(
-			<div className={`choice choice--${propChoice}`} >
-		</div>
+	if (propChoice === 'empty')
+		return (
+			<div className={`choice choice--${propChoice}`} ><span className='choice__countdown'>{props.children}</span></div>
 		)
 
 	return (
 		<div className={`choice choice--${choice.bgColor} ${ripple ? 'ripple' : ''}`} onClick={handleClick} >
 			<div className='choice__inner'>
 				<img className='choice__image' src={choice.image} alt={propChoice} />
+				{props.children ? <span className='choice__countdown'>{props.children}</span> : null}
 			</div>
 		</div>
 	)
