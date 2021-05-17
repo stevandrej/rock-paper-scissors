@@ -23,16 +23,16 @@ export const picks = [
 		bgColor: 'bg-scissors',
 		value: 2
 	},
+        {
+		name: 'spock',
+		image: spockImg,
+		bgColor: 'bg-spock',
+		value: 3
+	},
 	{
 		name: 'lizard',
 		image: lizardImg,
 		bgColor: 'bg-lizard',
-		value: 3
-	},
-	{
-		name: 'spock',
-		image: spockImg,
-		bgColor: 'bg-spock',
 		value: 4
 	}
 ];
