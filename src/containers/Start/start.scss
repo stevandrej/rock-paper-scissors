@@ -4,10 +4,17 @@
 	position: relative;
 	width: 100%;
 	height: 500px;
-	background: url(../../images/bg-triangle.svg) no-repeat center;
 	background-size: auto;
 
-	@include mobile{
+	&--normal {
+		background: url(../../images/bg-triangle.svg) no-repeat center;
+	}
+
+	&--advanced {
+		background: url(../../images/bg-pentagon.svg) no-repeat center;
+	}
+
+	@include mobile {
 		height: 350px;
 	}
 
@@ -15,11 +22,12 @@
 		position: absolute;
 		transition: transform 0.3s;
 
+		//Normal game mode
 		&--paper {
 			top: 10%;
 			left: 20%;
 
-			@include mobile{
+			@include mobile {
 				top: 2%;
 				left: 0;
 			}
@@ -33,7 +41,7 @@
 			top: 10%;
 			right: 20%;
 
-			@include mobile{
+			@include mobile {
 				top: 2%;
 				right: 0;
 			}
@@ -48,13 +56,40 @@
 			left: 50%;
 			transform: translateX(-50%);
 
-			@include mobile{
+			@include mobile {
 				bottom: 3%;
 			}
 
 			&:hover {
 				transform: translateX(-50%) scale(1.12);
 			}
+		}
+
+		//Advanced mode positions
+		&--paper-adv {
+			top: 10%;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		&--rock-adv {
+			top: 30%;
+			right: 25%;
+		}
+
+		&--scissors-adv {
+			bottom: 10%;
+			right: 30%;
+		}
+
+		&--lizard-adv {
+			bottom: 10%;
+			left: 30%;
+		}
+
+		&--spock-adv {
+			top: 30%;
+			left: 25%;
 		}
 	}
 }

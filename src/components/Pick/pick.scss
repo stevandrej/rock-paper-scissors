@@ -12,7 +12,7 @@
 	cursor: pointer;
 	box-shadow: 0px -6px 0px 0px rgba(0, 0, 0, 0.15) inset;
 
-	@include mobile{
+	@include mobile {
 		width: 100px;
 		height: 100px;
 		padding: 10px;
@@ -30,7 +30,15 @@
 		background: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 	}
 
-	&--empty{
+	&--bg-lizard {
+		background: linear-gradient(to top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+	}
+
+	&--bg-spock {
+		background: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+	}
+
+	&--empty {
 		background: rgba(0, 0, 0, 0.15);
 		box-shadow: none;
 	}
@@ -46,7 +54,7 @@
 		box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.15) inset;
 	}
 
-	&__countdown{
+	&__countdown {
 		color: #fff;
 		font-size: 2.8rem;
 		font-family: inherit;
@@ -59,44 +67,39 @@
 }
 
 @keyframes ripple {
-
 	0% {
-		box-shadow: 0 0 0 0px rgba($color: #fff, $alpha: 0.07),
-					0 0 0 10px rgba($color: #fff, $alpha: 0.07),
-					0 0 0 30px rgba($color: #fff, $alpha: 0.07),
-					0 0 0 50px rgba($color: #fff, $alpha: 0.07),
-					0px -6px 0px 0px rgba(0, 0, 0, 0.15) inset;
-	  }
+		box-shadow: 0 0 0 0px rgba($color: #fff, $alpha: 0.07), 0 0 0 10px rgba($color: #fff, $alpha: 0.07),
+			0 0 0 30px rgba($color: #fff, $alpha: 0.07), 0 0 0 50px rgba($color: #fff, $alpha: 0.07),
+			0px -6px 0px 0px rgba(0, 0, 0, 0.15) inset;
+	}
 
-	  100% {
-		box-shadow: 0 0 0 10px rgba($color: #fff, $alpha: 0.07),
-					0 0 0 30px rgba($color: #fff, $alpha: 0.07),
-					0 0 0 50px rgba($color: #fff, $alpha: 0.07),
-					0 0 0 80px rgba($color: #fff, $alpha: 0),
-					0px -6px 0px 0px rgba(0, 0, 0, 0.15) inset;
-	  }
+	100% {
+		box-shadow: 0 0 0 10px rgba($color: #fff, $alpha: 0.07), 0 0 0 30px rgba($color: #fff, $alpha: 0.07),
+			0 0 0 50px rgba($color: #fff, $alpha: 0.07), 0 0 0 80px rgba($color: #fff, $alpha: 0),
+			0px -6px 0px 0px rgba(0, 0, 0, 0.15) inset;
+	}
 }
 
-@keyframes fade-in{
-	0%{
+@keyframes fade-in {
+	0% {
 		opacity: 0;
 	}
 
-	100%{
+	100% {
 		opacity: 1;
 	}
 }
 
-.ripple{
+.ripple {
 	position: relative;
 
-	&::after{
-		content: '';
+	&::after {
+		content: "";
 		width: 100%;
 		height: 100%;
 		border-radius: 50%;
 		position: absolute;
-		animation: ripple 3s linear infinite, fade-in .5s ease-in;
+		animation: ripple 3s linear infinite, fade-in 0.5s ease-in;
 		animation-direction: normal;
 	}
 }

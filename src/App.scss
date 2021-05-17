@@ -1,19 +1,19 @@
 @import "./scss/breakpoints.scss";
 
-.app{
+.app {
 	display: flex;
 	flex-direction: column;
 	padding-top: 40px;
 	padding-bottom: 40px;
 	min-height: 100vh;
 
-	@include tablet{
+	@include tablet {
 		margin-left: 20px;
 		margin-right: 20px;
 	}
 }
 
-.wrapper{
+.wrapper {
 	max-width: 768px;
 	width: 100%;
 	display: flex;
@@ -22,7 +22,7 @@
 	align-self: center;
 }
 
-.content{
+.content {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -30,19 +30,20 @@
 	padding-top: 50px;
 	padding-bottom: 50px;
 
-	@include mobile{
+	@include mobile {
 		justify-content: center;
 	}
 }
 
-footer{
+footer {
 	color: white;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
+	margin-left: 40px;
 	margin-right: 40px;
 
-	@include tablet{
-			justify-content: center;
-			margin: unset;
+	@include mobile {
+		flex-wrap: wrap;
+		margin: unset;
 	}
 }

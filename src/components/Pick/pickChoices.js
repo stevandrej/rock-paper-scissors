@@ -1,6 +1,8 @@
 import rockImg from '../../images/icon-rock.svg'
 import paperImg from '../../images/icon-paper.svg'
 import scissorsImg from '../../images/icon-scissors.svg'
+import lizardImg from '../../images/icon-lizard.svg'
+import spockImg from '../../images/icon-spock.svg'
 
 export const picks = [
 	{
@@ -20,5 +22,17 @@ export const picks = [
 		image: scissorsImg,
 		bgColor: 'bg-scissors',
 		value: 2
+	},
+	{
+		name: 'lizard',
+		image: lizardImg,
+		bgColor: 'bg-lizard',
+		value: 3
+	},
+	{
+		name: 'spock',
+		image: spockImg,
+		bgColor: 'bg-spock',
+		value: 4
 	}
 ];

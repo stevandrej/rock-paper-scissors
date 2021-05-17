@@ -3,10 +3,11 @@ import { picks } from '../../components/Pick/pickChoices'
 const initState = {
 	modal: false,
 	score: 0,
+	gameMode: 'advanced',
 	userChoice: '',
 	PCChoice: '',
 	gameState: 'start',
-	gameResult:''
+	gameResult: ''
 }
 
 const game = (state = initState, action) => {
@@ -24,7 +25,7 @@ const game = (state = initState, action) => {
 				gameResult: 'lose'
 			}
 		case "DRAW":
-			return{
+			return {
 				...state,
 				gameResult: 'draw'
 			}
@@ -35,18 +36,34 @@ const game = (state = initState, action) => {
 				userChoice: action.payload
 			}
 		case "PC_PICK":
-			const pcRandomChoice = picks[Math.floor(Math.random() * 3)];
+			let pcRandomChoice;
+			if(state.gameMode === 'normal')
+				pcRandomChoice = picks[Math.floor(Math.random() * 3)];
+			else
+				pcRandomChoice = picks[Math.floor(Math.random() * 5)];
 			return {
 				...state,
 				PCChoice: pcRandomChoice
 			}
 		case "PLAY_AGAIN":
-			return{
+			return {
 				...state,
 				gameState: 'start',
-				PCChoice:'',
-				userChoice:'',
+				PCChoice: '',
+				userChoice: '',
 				gameResult: ''
+			}
+		case "GAME_MODE":
+			if (state.gameMode === 'normal') {
+				return {
+					...state,
+					gameMode: 'advanced'
+				}
+			}
+			else
+				return {
+					...state,
+					gameMode: 'normal' 
 			}
 		default:
 			return state;

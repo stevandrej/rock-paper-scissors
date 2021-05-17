@@ -34,3 +34,9 @@ export const playAgain = () => {
 		type: "PLAY_AGAIN"
 	}
 }
+
+export const toggleGameMode = () => {
+	return{
+		type: "GAME_MODE"
+	}
+}
