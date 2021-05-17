@@ -13,7 +13,7 @@
 	box-shadow: none;
 	text-transform: uppercase;
 	border: none;
-	transition: box-shadow .3s, color .3s;
+	transition: box-shadow 0.3s, color 0.3s;
 
 	&:focus,
 	&:active,
@@ -39,11 +39,15 @@
 		border: 2px solid hsl(217, 16%, 45%);
 	}
 
-	&--fluid{
+	&--fluid {
 		width: 100%;
 	}
 
-	&--wide{
+	&--wide {
 		padding: 8px 40px;
+	}
+
+	&:disabled {
+		cursor: not-allowed;
 	}
 }

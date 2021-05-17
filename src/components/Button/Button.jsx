@@ -1,7 +1,7 @@
 import React from 'react';
 import './button.scss';
 
-const Button = ({variant = 'default', onClick, fluid, wide, ...props}) => {
+const Button = ({ variant = 'default', onClick, fluid, wide, disabled = false, ...props }) => {
 
 	const handleClick = (e) => {
 		e.preventDefault();
@@ -10,7 +10,7 @@ const Button = ({variant = 'default', onClick, fluid, wide, ...props}) => {
 	}
 
 	return (
-		<button className={`btn btn--${variant} ${fluid ? "btn--fluid" : ''} ${wide ? "btn--wide": ''} `} onClick={handleClick} >{props.children}</button>
+		<button disabled={disabled} className={`btn btn--${variant} ${fluid ? "btn--fluid" : ''} ${wide ? "btn--wide" : ''} `} onClick={handleClick} >{props.children}</button>
 	)
 }
 
