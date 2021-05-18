@@ -67,29 +67,53 @@
 
 		//Advanced mode positions
 		&--paper-adv {
-			top: 10%;
-			left: 50%;
-			transform: translateX(-50%);
+			bottom: 10%;
+			right: 30%;
+
+			@include mobile {
+				bottom: 0%;
+				right: 10%;
+			}
 		}
 
 		&--rock-adv {
 			top: 30%;
-			right: 25%;
+			right: 23%;
+
+			@include mobile {
+				right: 0%;
+				top: 25%;
+			}
 		}
 
 		&--scissors-adv {
-			bottom: 10%;
-			right: 30%;
+			top: 8%;
+			left: 50%;
+			transform: translateX(-50%);
+
+			@include mobile {
+				top: 0;
+			}
 		}
 
 		&--lizard-adv {
 			bottom: 10%;
 			left: 30%;
+
+			@include mobile {
+				bottom: 0;
+				left: 10%;
+			}
 		}
 
 		&--spock-adv {
 			top: 30%;
-			left: 25%;
+			left: 23%;
+
+			@include mobile {
+				left: 0;
+				top: 25%;
+			}
 		}
 	}
 }
