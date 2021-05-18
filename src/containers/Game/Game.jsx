@@ -12,6 +12,7 @@ const Game = () => {
 	const userChoice = useSelector(state => state.game.userChoice);
 	const PCChoice = useSelector(state => state.game.PCChoice);
 	const gameResult = useSelector(state => state.game.gameResult);
+	const gameMode = useSelector(state => state.game.gameMode);
 	const timerDelayResult = 2000; //2sec delay
 
 	const [countdown, setCountdown] = useState(timerDelayResult / 1000);
@@ -30,14 +31,27 @@ const Game = () => {
 				dispatch(actions.pcPickAction());
 			}
 		else {
+			//DRAW?
 			if (userChoice.value === PCChoice.value)
 				dispatch(actions.drawAction());
-			else if ((userChoice.value + 1) % 3 === PCChoice.value)
-				dispatch(actions.winAction());
-			else
-				dispatch(actions.loseAction());
+			else {
+				// Normal Game mode
+				if (gameMode === 'normal') {
+					if ((userChoice.value + 1) % 3 === PCChoice.value)
+						dispatch(actions.winAction());
+					else
+						dispatch(actions.loseAction());
+				}
+				// Advanced Game mode
+				else {
+					if ((userChoice.value + 1) % 5 === PCChoice.value || (userChoice.value + 3) % 5 === PCChoice.value)
+						dispatch(actions.winAction())
+					else
+						dispatch(actions.loseAction());
+				}
+			}
 		}
-	}, [PCChoice, userChoice, dispatch, countdown])
+	}, [PCChoice.value, countdown, dispatch, gameMode, userChoice.value])
 
 	const styles = useSpring({
 		from: {

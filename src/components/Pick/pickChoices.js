@@ -6,33 +6,33 @@ import spockImg from '../../images/icon-spock.svg'
 
 export const picks = [
 	{
+		name: 'scissors',
+		image: scissorsImg,
+		bgColor: 'bg-scissors',
+		value: 0
+	},
+	{
 		name: 'paper',
 		image: paperImg,
 		bgColor: 'bg-paper',
-		value: 0
+		value: 1
 	},
 	{
 		name: 'rock',
 		image: rockImg,
 		bgColor: 'bg-rock',
-		value: 1
-	},
-	{
-		name: 'scissors',
-		image: scissorsImg,
-		bgColor: 'bg-scissors',
 		value: 2
-	},
-        {
-		name: 'spock',
-		image: spockImg,
-		bgColor: 'bg-spock',
-		value: 3
 	},
 	{
 		name: 'lizard',
 		image: lizardImg,
 		bgColor: 'bg-lizard',
+		value: 3
+	},
+	{
+		name: 'spock',
+		image: spockImg,
+		bgColor: 'bg-spock',
 		value: 4
 	}
 ];

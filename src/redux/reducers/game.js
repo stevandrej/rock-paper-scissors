@@ -3,7 +3,7 @@ import { picks } from '../../components/Pick/pickChoices'
 const initState = {
 	modal: false,
 	score: 0,
-	gameMode: 'advanced',
+	gameMode: 'normal',
 	userChoice: '',
 	PCChoice: '',
 	gameState: 'start',
